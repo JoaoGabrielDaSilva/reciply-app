@@ -1,4 +1,5 @@
 import { Redirect, Stack } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 
 import { useAuth } from '../../store/use-auth';
 
@@ -10,8 +11,12 @@ export default function AppLayout() {
   }
 
   return (
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-    </Stack>
+    <>
+      <StatusBar style="inverted" />
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="(tabs)" />
+        <Stack.Screen name="select-language" />
+      </Stack>
+    </>
   );
 }
