@@ -1,5 +1,5 @@
 import { Ionicons } from '@expo/vector-icons';
-import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
 import { Text, View } from 'react-native';
 import Animated, { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
 import colors from 'tailwindcss/colors';
@@ -7,8 +7,11 @@ import colors from 'tailwindcss/colors';
 import { CurrencyText } from '../../../components/currency-text';
 import { Goal } from '../../../components/goal';
 import { HomeHeader } from '../../../components/header';
+import { useTour } from '../../../store/use-tour';
 
 export default function Home() {
+  const { startTour } = useTour();
+
   const scrollY = useSharedValue(0);
 
   const scrollHandler = useAnimatedScrollHandler({
@@ -17,8 +20,12 @@ export default function Home() {
     },
   });
 
+  useEffect(() => {
+    startTour('');
+  }, []);
+
   return (
-    <View className="flex-1 bg-white">
+    <View className="flex-1 bg-background-primary">
       <HomeHeader value={100} scrollY={scrollY} />
 
       <Animated.ScrollView
@@ -29,23 +36,30 @@ export default function Home() {
           gap: 12,
         }}>
         <View className="flex-row gap-x-2">
-          <View className="bg-white p-4 rounded-md flex-1 shadow-md shadow-gray-300">
+          <View className="bg-background-secondary p-4 rounded-md flex-1 shadow-md shadow-shadow-primary">
             <View className="flex-row gap-x-2">
-              <Text className="font-semibold text-black text-md">Total Income</Text>
+              <Text className="font-semibold text-text-primary text-md">Total Income</Text>
               <Ionicons name="ios-trending-up" size={20} color={colors.green[500]} />
             </View>
-            <CurrencyText value={100} className="font-bold text-gray-700 text-xl self-start" />
+            <CurrencyText
+              value={100}
+              className="font-bold text-text-secondary text-xl self-start"
+            />
           </View>
-          <View className="bg-white p-4 rounded-md flex-1 shadow-md shadow-gray-300">
+
+          <View className="bg-background-secondary p-4 rounded-md flex-1 shadow-md shadow-shadow-primary">
             <View className="flex-row gap-x-2">
-              <Text className="font-semibold text-black text-md">Total Outcome</Text>
+              <Text className="font-semibold text-text-primary text-md">Total Outcome</Text>
               <Ionicons name="ios-trending-down" size={20} color={colors.red[500]} />
             </View>
-            <CurrencyText value={500} className="font-bold text-gray-700 text-xl self-start" />
+            <CurrencyText
+              value={500}
+              className="font-bold text-text-secondary text-xl self-start"
+            />
           </View>
         </View>
-        <View className="p-4 bg-white rounded-lg shadow-md shadow-gray-300">
-          <Text className="text-lg font-bold">Goals</Text>
+        <View className="p-4 bg-background-secondary rounded-lg shadow-md shadow-shadow-primary">
+          <Text className="text-lg text-text-primary font-bold">Goals</Text>
           <Goal
             title="New Car"
             dueDate={new Date(2022, 10, 24)}

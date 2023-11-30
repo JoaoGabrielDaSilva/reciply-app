@@ -23,7 +23,7 @@ export function MenuItem({ label, icon, onPress, variant = 'borderless' }: MenuI
 
         <View className="flex-1">
           <View className="flex-row items-center justify-between mr-2">
-            <Text>{label}</Text>
+            <Text className="text-text-primary">{label}</Text>
             <Ionicons name="chevron-forward" size={18} color={colors.gray[500]} />
           </View>
           {variant === 'withBorder' ? (

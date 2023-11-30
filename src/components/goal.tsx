@@ -62,24 +62,24 @@ export function Goal({ title, dueDate = new Date(), value, goalValue, style }: G
   }));
 
   return (
-    <View className="bg-white" style={style}>
+    <View className="bg-background-secondary" style={style}>
       <View className="flex-row justify-between">
         <View className="flex-row gap-x-4">
           <View className="bg-gray-400 p-4 rounded-full">
             <Ionicons name="car" size={22} color={colors.white} />
           </View>
           <View>
-            <Text className="font-bold text-lg">{title}</Text>
-            <Text className="text-gray-400">
+            <Text className="font-bold text-lg text-text-primary">{title}</Text>
+            <Text className="text-text-secondary">
               {isCompleted ? 'This goal was achieved' : timeLeft}
             </Text>
           </View>
         </View>
-        <Text className="font-extrabold text-md">{percentage}%</Text>
+        <Text className="font-extrabold text-md text-text-primary">{percentage}%</Text>
       </View>
       <View className="my-4">
         <View
-          className="h-2 w-full rounded-full bg-gray-200"
+          className="h-2 w-full rounded-full bg-progress-bar-background"
           onLayout={({ nativeEvent: { layout } }) => {
             if (barWidth.value === 0) {
               barWidth.value = layout.width;
@@ -89,8 +89,8 @@ export function Goal({ title, dueDate = new Date(), value, goalValue, style }: G
         </View>
       </View>
       <View className="flex-row items-center justify-between">
-        <CurrencyText value={value} className="font-medium" />
-        <CurrencyText value={goalValue} className="font-medium" />
+        <CurrencyText value={value} className="font-medium text-text-primary" />
+        <CurrencyText value={goalValue} className="font-medium text-text-primary" />
       </View>
     </View>
   );
