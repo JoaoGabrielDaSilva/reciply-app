@@ -8,5 +8,6 @@ export const enUS = {
   },
   intl: {
     currency: '{{value, currency(USD)}}',
+    compact: '{{value, notation(compact)}}',
   },
 };

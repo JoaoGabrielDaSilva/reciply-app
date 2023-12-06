@@ -8,5 +8,6 @@ export const ptBR = {
   },
   intl: {
     currency: '{{value, currency(BRL)}}',
+    compact: '{{value, notation(compact)}}',
   },
 };

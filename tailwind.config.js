@@ -6,12 +6,10 @@ module.exports = {
       colors: {
         primary: 'var(--color-primary)',
         secondary: 'var(--color-secondary)',
-        outstand: 'var(--color-outstand)',
+        tertiary: 'var(--color-tertiary)',
         'text-primary': 'var(--color-text-primary)',
         'text-secondary': 'var(--color-text-secondary)',
         'background-primary': 'var(--color-background-primary)',
-        'background-secondary': 'var(--color-background-secondary)',
-        'progress-bar-background': 'var(--color-progress-bar-background)',
       },
     },
   },

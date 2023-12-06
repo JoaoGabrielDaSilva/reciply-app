@@ -4,7 +4,6 @@ import { initReactI18next } from 'react-i18next';
 
 import { enUS, ptBR } from './locales';
 
-console.log(locale);
 i18next.use(initReactI18next).init({
   fallbackLng: 'en',
   lng: locale,
