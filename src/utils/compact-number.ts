@@ -8,7 +8,7 @@ export function compactNumber(number: number) {
 
   switch (true) {
     case number >= 1_000 && number < 1_000_000:
-      return `${(number / 1000).toPrecision(2)}K`;
+      return `${number / 1000}K`;
     case number >= 1_000_000:
       return `${(number / 1000000).toPrecision(2)}M`;
     default:

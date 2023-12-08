@@ -13,7 +13,7 @@ export default function AppLayout() {
 
   return (
     <>
-      <StatusBar style="inverted" />
+      <StatusBar style="dark" />
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="(tabs)" />
       </Stack>

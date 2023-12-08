@@ -1,5 +1,6 @@
-import { useGlobalSearchParams } from 'expo-router';
-import { SafeAreaView, ScrollView, View } from 'react-native';
+import { useGlobalSearchParams, useLocalSearchParams } from 'expo-router';
+import { ScrollView, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { FeedRecipe } from '../../../components/feed-recipe';
 import { TabScreenAnimatedContainer } from '../../../components/tab-screen-animated-container';
@@ -8,10 +9,11 @@ const uri =
   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbOTVE4krGwl-9yoi0_0p5sRFrFVaEV1c9ew&usqp=CAU';
 
 export default function Home() {
-  const params = useGlobalSearchParams();
+  const params = useLocalSearchParams<{ tabIndex: string }>();
+  const tabIndex = Number(params.tabIndex);
 
   return (
-    <TabScreenAnimatedContainer tabIndex={params?.tabIndex}>
+    <TabScreenAnimatedContainer tabIndex={tabIndex}>
       <SafeAreaView className="flex-1 bg-background-primary ">
         <ScrollView
           contentContainerStyle={{
